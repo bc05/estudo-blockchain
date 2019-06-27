@@ -60,12 +60,12 @@ class Blockchain
 		return $this->block;
 	}
 
-	public function getLastHash()
+	private function getLastHash()
 	{
 		return end($this->block)['hash'] ?? str_repeat('0', 64);
 	}
 
-	public function setBlock(String $hash)
+	private function setBlock(String $hash)
 	{
 		array_push($this->block, [
 			'previus' 	=> $this->getLastHash(),
@@ -76,7 +76,7 @@ class Blockchain
 
 $blockchain = new Blockchain();
 
-$blockchain->newBlock('teste');
+$blockchain->newBlock('neison');
 
 echo '<pre>';
-var_dump($blockchain->getBlock());
+print_r($blockchain->getBlock());
